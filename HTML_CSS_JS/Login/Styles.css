@@ -1,0 +1,74 @@
+* {
+    box-sizing: border-box;
+  }
+
+body{
+  background: linear-gradient(45deg, rgb(43, 43, 42), rgb(35, 44, 44));
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  margin: 0;
+}
+
+.corpo{
+  background-color: white;
+  width: auto;
+  height: auto;
+  
+  padding-top: 50px;
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-bottom: 100px;
+
+  border-radius: 15px;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+header{
+  text-align: center;
+}
+
+hr{
+  background-color: gray;
+  width: 80%;
+  height: 0px;
+}
+
+.inputs{
+  margin: auto;
+  text-align: center;
+}
+
+input{
+  border-radius: 7px;
+  border-color: gray;
+}
+
+
+::placeholder{
+  text-align: center;
+}
+
+
+.btnCadastrar{
+  width: 100%;
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
+.btnEntrar{
+  width: 100%;
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
+.error {
+  border: 2px solid red;
+}

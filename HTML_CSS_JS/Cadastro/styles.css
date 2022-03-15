@@ -1,0 +1,115 @@
+* {
+  box-sizing: border-box;
+}
+
+.corpo {
+  /*background-color: rgb(59, 55, 55);*/
+
+  background: linear-gradient(45deg, rgb(43, 43, 42), rgb(35, 44, 44));
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  margin: 0;
+}
+
+.main {
+  background-color: white;
+  width: 50%;
+  height: auto;
+  margin: auto;
+  margin-top: 2%;
+  border: 2px solid;
+  border-radius: 10px;
+  display: block;
+}
+.cabeca-div {
+  text-align: center;
+}
+.conteudo {
+  padding: 10px;
+  color: black;
+}
+
+.rodape {
+  background-color: rgb(240, 238, 238);
+  border-bottom: 5px solid;
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
+  text-align: center;
+  margin-left: 2%;
+  margin-right: 2%;
+  margin-bottom: 2%;
+  padding: 5px;
+  font-size: 15px;
+  padding-top: 15px;
+}
+.copy {
+  opacity: 0.3;
+}
+
+.inputs {
+  text-align: left;
+  padding: 10px;
+  font-size: 12px;
+}
+input {
+  width: 90%;
+}
+select {
+  width: 90%;
+}
+.arquivos {
+  width: 100%;
+}
+
+.button {
+  text-align: center;
+  padding: 10px;
+  height: 15px;
+  width: 0%;
+}
+
+.error {
+  border: 2px solid red;
+}
+
+
+.conteudoModel{
+  background-color: rgb(230, 227, 227);
+  
+  text-align: center;
+  border:1px solid black;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-radius:15px;
+  font-family: Arial, Helvetica, sans-serif;  
+  width: 25%;
+  
+  position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%,-50%);
+  display: none;
+
+}
+
+.inputsModel{
+  width: 85%;
+  border-radius: 7px;
+  border-color: white;
+}
+
+.btnModal{
+  background-color: white;
+  border-radius: 5px;
+  border-color: white;
+  width: 70%;
+
+}
+.btnModal:hover{
+  cursor: pointer;
+  background-color: whitesmoke;
+}

@@ -1,0 +1,43 @@
+<html>
+
+    <head>
+		<style>
+			body{
+		        display: flex;
+                align-items: center;
+                justify-content: center;
+			}
+		</style>
+    </head>
+
+    <body id="corpo">
+        <script>
+            addEventListener("mousemove", function(){
+    
+            var obj = document.getElementById('corpo');
+         //var TrocaCor = document.querySelector('.Miolo');
+            var top = 0;
+            var left = 0;
+    
+            while (obj.tagName != 'BODY') {
+                top += obj.offsetTop;
+                left += obj.offsetLeft;
+                obj = obj.offsetParent;
+            }
+    
+    var mouseX = event.clientX - left + window.pageXOffset;
+    var mouseY = event.clientY - top + window.pageYOffset;
+    //console.log(mouseX);
+    //console.log(mouseY);
+
+    //obj.classList += 'background: linear-gradient(45deg, rgb('+left.toString+','+left.toString+','+top.toString+'), rgb('+left.toString+','+left.toString+','+top.toString+'));'
+    obj.style.background = 'linear-gradient(45deg, rgb('+mouseX.toString()+','+27+','+mouseY.toString()+'), rgb('+mouseX.toString()+','+253+','+mouseY.toString()+'))'
+    
+    //obj.style.background = 'linear-gradient(45deg, rgb(500, 43, 42), rgb(35, 200, 44))'
+
+	})
+        </script>
+		
+		<h1>Mexa o Mouse</h1>
+    </body>
+</html>
