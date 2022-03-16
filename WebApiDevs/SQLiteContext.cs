@@ -21,7 +21,5 @@ namespace WebApiDevs
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
             base.OnModelCreating(modelBuilder);
         }
-
-        public DbSet<Produto> Produtos { get; set; }
     }
 }

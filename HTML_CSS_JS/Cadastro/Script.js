@@ -19,7 +19,9 @@ const estado = document.querySelector("#estado");
 //Modal
 const btnModalVoltar = document.getElementById('btnModalVoltar');
 const btnModalCadastrar = document.getElementById('btnModalCadastrar');
+
 const conteudoModel = document.querySelector('.conteudoModel');
+
 const email = document.querySelector("#email");
 const senha = document.querySelector("#senha");
 const confirmaSenha = document.querySelector("#ConfirmaSenha");
@@ -29,6 +31,7 @@ const errorEmail = document.querySelector("#msg-email");
 
 const errorMessageSenha = document.querySelector(".msg-senha");
 const errorSenha = document.querySelector("#msg-senha");
+
 const errorMessageConfirmaSenha = document.querySelector(".msg-confirmaSenha");
 const errorConfirmaSenha = document.querySelector("#msg-confirmaSenha");
 
@@ -60,6 +63,9 @@ const errorEstado = document.querySelector("#msg-estado");
 const errorImagem = document.querySelector("#msg-imagem")
 const errorMessageImagem = document.querySelector(".msg-imagem");
 
+//Loading
+const load = document.querySelector(".loading");
+
 nome.value = "Ivan Eduardo Mees";
 data.value = "2003-02-23";
 endereco.value = "Rua Peru";
@@ -72,11 +78,6 @@ apelido.value = "Ivan";
 cpf.value = "040.535.170.44";
 rg.value = "123456789";
 
-
-btnModalVoltar.addEventListener('click', function(){
-    conteudoModel.style.display = "none";
-
-})
 
 
 
@@ -97,9 +98,6 @@ nome.addEventListener('focusout', function () {
             errorMessageNome.classList = "";
             errorNome.innerHTML = "";
         }, 3000)
-
-        /*alert("nome não pode conter numericos");
-        nome.value = "";*/
     }
 
 
@@ -151,8 +149,6 @@ data.addEventListener('focusout', function () {
                 errorData.innerHTML = "";
                 idade.innerHTML = "";
             }, 3000)
-            /*alert("Data de nascimento incorreta")
-            data.value = "";*/
             return;
         }
 
@@ -169,9 +165,6 @@ data.addEventListener('focusout', function () {
                     errorData.innerHTML = "";
                     idade.innerHTML = "";
                 }, 3000)
-                /*alert("Data de nascimento incorreta")
-                data.value = "";
-                return;*/
             }
 
             if (dataNascimento[1] === arrayMes[now.getMonth()]) {
@@ -186,9 +179,6 @@ data.addEventListener('focusout', function () {
                         errorData.innerHTML = "";
                         idade.innerHTML = "";
                     }, 3000)
-                    /*alert("Data de nascimento incorreta")
-                    data.value = "";
-                    return;*/
                 }
             }
 
@@ -222,69 +212,35 @@ imagem.addEventListener('change', function () {
    
 })
 
-async function Post(url, body){
+// Faço a conexão com a api e envio meu JSON
+function Post(url, body){
     let request = new XMLHttpRequest();
-    
-
     
     request.open("POST",url, true);
     request.setRequestHeader("Content-Type", "application/json");;
-    //request.setRequestHeader("Accept","*/*");
-    //request.setRequestHeader("User-Agent","Thunder Client (https://www.thunderclient.com)");
-    //request.setRequestHeader("Access-Control-Allow-Origin", "*");
     request.send(JSON.stringify(body))
     
-    request.onload = function(){
-        //console.log(request.responseText)
-        //console.log(request.status);
-        /*if(request.responseText === '"Correto"'){
-            console.log("entrou");
-            alert("Cadastrado Com Sucesso");
-        }
-        else if(request.responseText === "Email ja cadastrado"){
-            alert("Email já cadastrado");
-        }
-        else{
-            alert("ERRO!!! Status: "+request.status + " Texto: "+request.responseText);
-        }*/
-        alert(request.responseText);
+    conteudoModel.style.display = "none";
+    load.style.display = "block";
 
+    request.onload = function(){
+        alert(request.responseText);
         if(request.status == 200){
             window.location.href="../Login/Login.html";
+        }else{
+            load.style.display = "none"
+            conteudoModel.style.display = "block"
         }
-
     }
     
     request.onerror = function() {
         alert("ERRO");
+        load.style.display = "none"
+        conteudoModel.style.display = "block"
     }
-    //const userData = fetch(request.send(JSON.stringify(body))).then(response => response.json()).then(console.log(request.status));
-    
-    //await fetch(console.log(request.status)).then(console.log(request.status))
-    //request.onload = function() {
-    //    console.log(this.responseText);
-    //}
-
-    
-        
-    //request.send(JSON.stringify(body));
-
-    //const promises = request.map(url => fetch(url).then(body => body.json()));
-    
-    //const response = await Promise.all(promises);
-
-    //if(response){
-    //    console.log(response)
-    //}
-
-    //await fetch(request.send(JSON.stringify(body)).then((resultado) => {
-    //    console.log(resultado);
-    //}));
-        
-    
 }
 
-// botão enviar, valida todos os campos exceto o selecionar foto, caso houver um campo vazio ele da uma msg de erro
+// botão enviar, valida todos os campos, caso houver um campo vazio ele da uma msg de erro
 button.addEventListener('click', function () {
     event.preventDefault();
    
@@ -343,14 +299,7 @@ button.addEventListener('click', function () {
     else{
         try {
             conteudoModel.style.display = "block"
-
-
-
-            //request.onload = function(){
-            //    console.log(this.responseText)
-            //}
-            //request.retu
-
+            BtnEditOFF(true);
         } catch (error) {
             console.log("erro" + error)
         }
@@ -359,7 +308,7 @@ button.addEventListener('click', function () {
     
 })
 
-// função que é executada cada vez que uma tecla é pressionada para cima nele eu vejo se o campo que esta com uma msg de erro = "algum campo deve ser informado" 
+// função que é executada cada vez que uma tecla é pressionada para cima nela eu vejo se o campo que esta com uma msg de erro = "algum campo deve ser informado" 
 // obteve um valor diferente de branco caso sim eu tiro a msg de erro
 function busca() {
 
@@ -447,20 +396,17 @@ function busca() {
             errorConfirmaSenha.innerHTML = "";
         }
     }
-
-
-}
-
-function desImagem(){
     if (errorImagem.innerHTML != "" || errorMessageImagem.classList == "error") {
         if (imagem.value != "") {
             errorMessageImagem.classList = "";
             errorImagem.innerHTML = "";
         }
     }
+
 }
 
 
+// Cadastro o email e senha caso todas as validações tenham sido sanadas
 btnModalCadastrar.addEventListener('click', function() {
     console.log(email.value);
     console.log(senha.value);
@@ -514,3 +460,46 @@ btnModalCadastrar.addEventListener('click', function() {
 
     }
 })
+// ao clicar em voltar no modal eu desabilito o modal e habilito os campos novamente
+btnModalVoltar.addEventListener('click', function(){
+    conteudoModel.style.display = "none";
+    BtnEditOFF(false);
+})
+
+function BtnEditOFF(bool){
+    if(bool == true){
+        nome.disabled = bool;
+        button.disabled = bool;
+        data.disabled = bool;
+        idade.disabled = bool;
+        imagem.disabled = bool;
+        photo.disabled = bool;
+        cep.disabled = bool;
+        endereco.disabled = bool;
+        numero.disabled = bool;
+        bairro.disabled = bool;
+        cidade.disabled = bool;
+        apelido.disabled = bool;
+        cpf.disabled = bool;
+        rg.disabled = bool;
+        estado.disabled = bool;
+    }
+    else{
+        nome.disabled = bool;
+        button.disabled = bool;
+        data.disabled = bool;
+        idade.disabled = bool;
+        imagem.disabled = bool;
+        photo.disabled = bool;
+        cep.disabled = bool;
+        endereco.disabled = bool;
+        numero.disabled = bool;
+        bairro.disabled = bool;
+        cidade.disabled = bool;
+        apelido.disabled = bool;
+        cpf.disabled = bool;
+        rg.disabled = bool;
+        estado.disabled = bool;
+    }
+}
+

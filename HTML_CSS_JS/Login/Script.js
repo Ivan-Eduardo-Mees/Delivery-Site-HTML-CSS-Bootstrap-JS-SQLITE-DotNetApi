@@ -10,11 +10,12 @@ const msgEmail = document.querySelector("#msg-email");
 const inputSenha = document.querySelector(".inputSenha");
 const msgSenha = document.querySelector("#msg-senha")
 
-//console.log(msgSenha);
+// Botão Cadastrar te redireciona para a tela de cadastro 
 cadastrar.addEventListener("click", function(){
     window.location.href="../Cadastro/Cadastro.html";
 })
-
+// botão Entrar caso as validações sejam sanadas eu faço a request para api e la faço minhas validações 
+// que são retornadas e mostrar a partir da função Post
 Entrar.addEventListener("click", function(){
 
     if(email.value === "" || senha.value === ""){
@@ -34,7 +35,7 @@ Entrar.addEventListener("click", function(){
 
     }
 })
-
+// caso houver msg com erro ao levantar uma tecla no campo eu retiro a msg de erro de erro       
 function Busca(){
     
     if(email.value != ""){
@@ -46,7 +47,7 @@ function Busca(){
         msgSenha.innerHTML = ""
     }
 }
-
+//faço a request para a api passando email e senha 
 function Post(url){
     let request = new XMLHttpRequest();
     
@@ -57,19 +58,7 @@ function Post(url){
     request.send()
     
     request.onload = function(){
-        //console.log(request.responseText)
-        //console.log(request.status);
-        
         alert(request.responseText);
-        /*if(request.status === 200){
-            console.log("entrou");
-            return "Logado Com Sucesso";
-        }
-        else{
-            console.log(typeof request.responseText)
-            return "ERRO!!! Status: "+request.status + " Texto: "+request.responseText;
-        }*/
-        //console.log(request.responseText);
     }
     
     request.onerror = function() {

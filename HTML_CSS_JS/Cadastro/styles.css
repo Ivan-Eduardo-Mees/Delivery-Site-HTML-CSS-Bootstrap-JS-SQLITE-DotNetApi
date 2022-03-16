@@ -113,3 +113,29 @@ select {
   cursor: pointer;
   background-color: whitesmoke;
 }
+
+.centraliza{
+  
+  position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%,-50%);
+
+}
+
+.loading{
+  width: 60px;
+  height: 60px;
+  
+  border: rgba(0, 0, 0, 0.18) solid;
+  border-left-color: #e20202;
+  border-radius: 50%;
+  display: none;
+
+  animation: Loading 1.2s linear infinite;
+
+}
+
+  @keyframes Loading {
+    to {transform: rotate(360deg);}
+  }

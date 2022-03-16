@@ -10,7 +10,6 @@ using System.Net.Http;
 using System.Web.Http;
 using WebApiDevs.DTOs;
 using WebApiDevs.Models;
-using WebApiDevs.Services;
 using System.Data.Entity;
 using System.Data;
 using System.Web.Http.Cors;
@@ -24,36 +23,13 @@ namespace WebApiDevs.Controllers
    [EnableCors("*","*","*")]
     public class ValuesController : ApiController
     {
-        ProdutosService prod = new ProdutosService();
-        Produto insert = new Produto();
-        
-        // GET api/values
-        [EnableQuery]
-        public IEnumerable<Produto> Get()
-        {
-
-            return prod.ListarProdutos();
-
-        }
-
         // GET api/values/5
         public string Get(int id)
         {
             return "value";
 
         }
-
-        [HttpGet]
-        public Produto GetProduto(string codigo)
-        {
-            return prod.GetProduto(codigo);
-        }
-
-        public ProdutoVendaDTO GetProdutoVenda (string codigo)
-        {
-            return prod.GetProdutoVenda(codigo);
-        }
-
+        // requisição que realiza a verificação dos dados de login
         public object GetLogin(string email, string senha)
         {
             Login login = new Login();
@@ -95,35 +71,7 @@ namespace WebApiDevs.Controllers
 
 
         }
-
-
-        // POST api/values
-        public string PostProdutos([FromBody] Produto values)
-        {
-            try{
-
-
-                string cs = ConfigurationManager.ConnectionStrings["DEVS"].ConnectionString;
-
-                SQLiteConnection con = new SQLiteConnection(cs);
-
-                string sql = "INSERT INTO PRODUTOS VALUES ("+values.Codigo+",'"+values.Descricao+"',"+values.ValorVenda+")";
-
-                SQLiteDataAdapter dap = new SQLiteDataAdapter(sql, con);
-
-                DataTable table = new DataTable();
-
-                dap.Fill(table);
-
-                return "certo";
-
-            }
-                catch (Exception ex)
-            {
-                return "erro" + ex;
-            }
-
-        }
+        // realizo a inserção do meu cadastro no banco
         public string PostCadastro([FromBody] Cadastro values)
         {
 
@@ -162,7 +110,8 @@ namespace WebApiDevs.Controllers
                 return "ERRO" + ex;
             }
         }
-
+        //uso para que a partir do login me retorne todos os dados da pessoa // posterirmente dividir a tabela em 2 
+        //uma com informações pessoais e outro com os dados do login
         public Cadastro[] GetCadastro(int codigo)
         {
             string cs = ConfigurationManager.ConnectionStrings["DEVS"].ConnectionString;
@@ -186,7 +135,7 @@ namespace WebApiDevs.Controllers
             return cadastro;
         }
 
-
+        //Uso para validar se o email ja existe na hora do cadastro
         public Login[] GetEmail(string email)
         {
             string cs = ConfigurationManager.ConnectionStrings["DEVS"].ConnectionString;
