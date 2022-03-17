@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+        <style>
+            table, th, td {
+              border:1px solid black;
+             
+            }
+            .inputText{
+                padding: 5px;
+                width:30%;
+                margin: 10px;
+                border-radius: 5px;
+            }
+            .inputButton{
+                padding: 5px;
+                width: 5%;
+                border-radius: 5px;
+                background-color: rgb(245, 240, 240);
+            }
+            
+        </style>
+    </head>
+
+
+    <body>
+        <br>
+        <input type="text" class="inputText" id="url" placeholder="Informe uma URL">
+        <input type="button" class="inputButton" id="button" value="Enviar">
+        <p style="margin-left: 10px;">Ex: https://api.publicapis.org/entries?category=animals</p>
+        <br>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-4" style="width: auto;">
+                    <table class="table" style="width: 100%;" id="id">
+                </div>
+            </div>
+        </div>
+
+        </table>
+        
+    </body>
+
+    <script src="./script.js"></script>
+</html>
