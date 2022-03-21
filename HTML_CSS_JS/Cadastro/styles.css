@@ -25,6 +25,8 @@
   border-radius: 10px;
   display: block;
 }
+
+
 .cabeca-div {
   text-align: center;
 }
@@ -77,7 +79,7 @@ select {
 }
 
 
-.conteudoModel{
+.model{
   background-color: rgb(230, 227, 227);
   
   text-align: center;
@@ -138,4 +140,39 @@ select {
 
   @keyframes Loading {
     to {transform: rotate(360deg);}
+    
   }
+
+
+.gira:hover{
+
+  animation: Loading linear 1.2s;
+}
+
+.BodyCadastro{
+  
+    background-color: white;
+    width: 50%;
+    height: auto;
+    margin: auto;
+    margin-top: 2%;
+    border: 2px solid;
+    border-radius: 10px;
+    display: block;
+  
+}
+
+.btnEnviar{
+  background: rgb(212, 209, 209);
+  max-width: 100px;
+  width: 100%; 
+  margin-right: 26px;
+  text-align: right;
+}
+
+.redondo{ 
+  background-color: black;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+}

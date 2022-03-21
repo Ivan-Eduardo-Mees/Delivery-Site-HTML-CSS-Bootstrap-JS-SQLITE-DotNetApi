@@ -14,7 +14,7 @@
     <body class="corpo">
 
         
-        <div class="main">
+        <section class="BodyCadastro">
             
             <header class="cabeca-div">
                 <h1>Cadastro</h1>
@@ -167,11 +167,12 @@
                                 <input id="imagem"  class="msg-rg" type="file" name="arquivos" onchange="busca()" accept="image/png, image/jpeg"  multiple />
                                 <h class="msg-imagem" id ="msg-imagem" style="color: red" value=""></h> 
                             </div>
+                            <br>
                             <div class="col-sm-4">
                                 <img src="" id="photo-preview">
                             </div>
                             <div class="col-sm-4" style="text-align: right;">
-                                <input class="btn" type="submit" id="button" style="background: rgb(212, 209, 209); width: 50%; margin-right: 26px;"/>
+                                <input class="btn btnEnviar" type="submit" id="button"/>
                             </div>
                         </div>
                     </div>
@@ -186,66 +187,65 @@
             </script>
 
             <footer class="rodape">
-               <a href="https://www.facebook.com/ivaneduardo.mees/" target="_blank"><img src="https://img.icons8.com/ios-glyphs/30/000000/facebook.png"/></a>
-               <a href="https://www.instagram.com/ivan_mees/" target="_blank"><img src="https://img.icons8.com/ios-glyphs/30/000000/instagram-new.png"/></a>
-               <a href="https://www.linkedin.com/in/ivan-eduardo-mees-4818171ab/" target="_blank"><img src="https://img.icons8.com/ios-glyphs/30/000000/linkedin.png"/></a>
+               <a href="https://www.facebook.com/ivaneduardo.mees/" target="_blank"><img src="https://img.icons8.com/ios-glyphs/30/000000/facebook.png" class="gira"/></a>
+               <a href="https://www.instagram.com/ivan_mees/" target="_blank"><img src="https://img.icons8.com/ios-glyphs/30/000000/instagram-new.png" class="gira"/></a>
+               <a href="https://www.linkedin.com/in/ivan-eduardo-mees-4818171ab/" target="_blank"><img src="https://img.icons8.com/ios-glyphs/30/000000/linkedin.png"  class="gira"/></a>
                <p class="copy">© 2022 Ivan Mees</p>
             </footer>
             
             <div class="centraliza">
                 <div class="loading"></div>
             </div>
-            
-            <div class="conteudoModel">
-                <header>Casdastro Login</header>
+        </section>
 
-                <hr style="width: 70%; background-color: black;">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <label for="">*Email</label>
-                            <br>
-                            <input type="text" class="inputsModel msg-email" placeholder="" id="email" onkeyup="busca()">
-                            <br>
-                            <h class="msg-email" id ="msg-email" style="color: red" value=""></h>
-                        </div>
+        <section class="model">
+        
+            <header>Casdastro Login</header>
+
+            <hr style="width: 70%; background-color: black;">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <label for="">*Email</label>
+                        <br>
+                        <input type="text" class="inputsModel msg-email" placeholder="" id="email" onkeyup="busca()">
+                        <br>
+                        <h class="msg-email" id ="msg-email" style="color: red" value=""></h>
                     </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <label for="">*Senha</label>
-                            <br>
-                            <input type="password" class="inputsModel msg-senha" placeholder="" id="senha" onkeyup="busca()">
-                            <br>
-                            <h class="msg-senha" id ="msg-senha" style="color: red" value=""></h>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <label for="">*Confirmar Senha</label>
-                            <br>
-                            <input type="password" class="inputsModel msg-confirmaSenha" placeholder="" id="confirmaSenha" onkeyup="busca()">
-                            <br>
-                            <h class="msg-confirmaSenha" id ="msg-confirmaSenha" style="color: red" value=""></h>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <button class="btnModal" id="btnModalVoltar">Voltar</button>
-                        </div>
-                        <div class="col-sm-6">
-                            <button class="btnModal" id="btnModalCadastrar" >Cadastrar</button>
-                        </div>
-                    </div>
-                    <br>
                 </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <label for="">*Senha</label>
+                        <br>
+                        <input type="password" class="inputsModel msg-senha" placeholder="" id="senha" onkeyup="busca()">
+                        <br>
+                        <h class="msg-senha" id ="msg-senha" style="color: red" value=""></h>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <label for="">*Confirmar Senha</label>
+                        <br>
+                        <input type="password" class="inputsModel msg-confirmaSenha" placeholder="" id="confirmaSenha" onkeyup="busca()">
+                        <br>
+                        <h class="msg-confirmaSenha" id ="msg-confirmaSenha" style="color: red" value=""></h>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <button class="btnModal" id="btnModalVoltar">Voltar</button>
+                    </div>
+                    <div class="col-sm-6">
+                        <button class="btnModal" id="btnModalCadastrar" >Cadastrar</button>
+                    </div>
+                </div>
+                <br>
             </div>
-            
-            
+        </section>
 
-        </div>
         
     
          <script src="Script.js"></script>

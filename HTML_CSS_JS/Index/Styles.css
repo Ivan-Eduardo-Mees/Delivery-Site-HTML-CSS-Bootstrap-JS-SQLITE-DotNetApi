@@ -1,3 +1,40 @@
 body{
     background-color: rgb(240, 238, 238);
 }
+
+.login{
+    background-color: purple;
+}
+
+.teste{
+    background: blue;
+    width: 50%;
+    height: 50%;
+}
+
+.fachada{
+    background-image: url(https://footballqueensland.com.au/wp-content/uploads/2018/08/Futsal-banner-1920-x-300.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    resize:horizontal;
+    height: 200px;
+}
+
+.cadastro{
+    color: black;
+    font-size: larger;
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
+    margin-top: 10px;
+    padding: 10px;
+    display: inline-flex;
+    background: rgba(255, 255, 255, 0.3);    /*  10% opaque green */ 
+    
+    transition-property: background-color, border-radius;
+    transition-duration: 1s;
+}
+
+.cadastro:hover{
+    background-color: white;
+    border-radius: 15px;
+}

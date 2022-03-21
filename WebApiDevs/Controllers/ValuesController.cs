@@ -26,7 +26,7 @@ namespace WebApiDevs.Controllers
         // GET api/values/5
         public string Get(int id)
         {
-            return "value";
+            return "value" + (1 +2) ;
 
         }
         // requisição que realiza a verificação dos dados de login

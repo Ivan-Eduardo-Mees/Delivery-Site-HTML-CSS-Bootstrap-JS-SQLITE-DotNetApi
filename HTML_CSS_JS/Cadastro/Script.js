@@ -20,7 +20,7 @@ const estado = document.querySelector("#estado");
 const btnModalVoltar = document.getElementById('btnModalVoltar');
 const btnModalCadastrar = document.getElementById('btnModalCadastrar');
 
-const conteudoModel = document.querySelector('.conteudoModel');
+const conteudoModel = document.querySelector('.model');
 
 const email = document.querySelector("#email");
 const senha = document.querySelector("#senha");
